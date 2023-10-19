@@ -14,7 +14,7 @@ struct DailyView: View {
         VStack {
             // 2
             CircularProgressView(progress: 0.5)
-            // 3
+            Text("try")
             
         }.frame(width: 200, height: 200)
     }
