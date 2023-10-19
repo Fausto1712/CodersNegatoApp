@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2728F5742AE17CF8008E5383 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2728F5732AE17CF8008E5383 /* Category.swift */; };
 		4D84D61B2AE1636C0009A061 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D84D61A2AE1636C0009A061 /* Assets.xcassets */; };
 		4D84D61E2AE1636C0009A061 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D84D61D2AE1636C0009A061 /* Preview Assets.xcassets */; };
 		4D84D62F2AE163CF0009A061 /* SummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D84D6252AE163CF0009A061 /* SummaryView.swift */; };
@@ -21,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2728F5732AE17CF8008E5383 /* Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		4D84D6132AE1636B0009A061 /* MoodAppDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoodAppDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D84D61A2AE1636C0009A061 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4D84D61D2AE1636C0009A061 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -100,6 +102,7 @@
 			children = (
 				4D84D62C2AE163CF0009A061 /* Sector.swift */,
 				4D84D6372AE174130009A061 /* CircularProgressView.swift */,
+				2728F5732AE17CF8008E5383 /* Category.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -175,6 +178,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4D84D63C2AE174480009A061 /* DailyView.swift in Sources */,
+				2728F5742AE17CF8008E5383 /* Category.swift in Sources */,
 				4D84D6332AE163CF0009A061 /* MoodAppDemoApp.swift in Sources */,
 				4D84D6312AE163CF0009A061 /* TaskHubView.swift in Sources */,
 				4D84D6382AE174130009A061 /* CircularProgressView.swift in Sources */,
