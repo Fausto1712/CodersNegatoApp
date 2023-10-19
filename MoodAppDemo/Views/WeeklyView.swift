@@ -8,48 +8,48 @@
 import SwiftUI
 import Charts
 
-struct DailyStatsView: View {
+struct WeeklyView: View {
     
-    var categories = CategoryViewModel()
+    var sectors = SectorViewModel()
     var body: some View {
         
         NavigationStack{
             
             Chart {
-                ForEach(categories.categories) { category in
+                ForEach(sectors.sectors) { sector in
                     BarMark(
-                        x: .value("Category", category.name),
-                        y: .value("Total Count", category.name.count)
+                        x: .value("Sector", sector.name),
+                        y: .value("Total Count", sector.name.count)
                         )
-                    .foregroundStyle(category.color)
+                    .foregroundStyle(sector.color)
                 }
             }
             .padding()
             
             List {
-                ForEach(categories.categories) { category in
+                ForEach(sectors.sectors) { sector in
                     
                     NavigationLink {
                         PuzzleView()
                     } label: {
                         VStack(alignment: .leading) {
-                            Text(category.name)
+                            Text(sector.name)
                                 .font(.title2)
                                 .bold()
-                                .foregroundStyle(category.color)
-                            Text(category.details)
+                                .foregroundStyle(sector.color)
+                            Text(sector.desc)
                         }
                         .padding()
                     }
                     
                 }
             }
-            .navigationTitle("Daily")
+            .navigationTitle("Weekly")
         }
         
     }
 }
 
 #Preview {
-    DailyStatsView()
+    WeeklyView()
 }
