@@ -18,6 +18,7 @@
 		4D84D6352AE163CF0009A061 /* Sector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D84D62C2AE163CF0009A061 /* Sector.swift */; };
 		4D84D6382AE174130009A061 /* CircularProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D84D6372AE174130009A061 /* CircularProgressView.swift */; };
 		4D84D63C2AE174480009A061 /* DailyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D84D63B2AE174480009A061 /* DailyView.swift */; };
+		4D84D63E2AE17D3A0009A061 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D84D63D2AE17D3A0009A061 /* Task.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +34,7 @@
 		4D84D62C2AE163CF0009A061 /* Sector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sector.swift; sourceTree = "<group>"; };
 		4D84D6372AE174130009A061 /* CircularProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressView.swift; sourceTree = "<group>"; };
 		4D84D63B2AE174480009A061 /* DailyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyView.swift; sourceTree = "<group>"; };
+		4D84D63D2AE17D3A0009A061 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +102,7 @@
 			children = (
 				4D84D62C2AE163CF0009A061 /* Sector.swift */,
 				4D84D6372AE174130009A061 /* CircularProgressView.swift */,
+				4D84D63D2AE17D3A0009A061 /* Task.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -176,6 +179,7 @@
 			files = (
 				4D84D63C2AE174480009A061 /* DailyView.swift in Sources */,
 				4D84D6332AE163CF0009A061 /* MoodAppDemoApp.swift in Sources */,
+				4D84D63E2AE17D3A0009A061 /* Task.swift in Sources */,
 				4D84D6312AE163CF0009A061 /* TaskHubView.swift in Sources */,
 				4D84D6382AE174130009A061 /* CircularProgressView.swift in Sources */,
 				4D84D6302AE163CF0009A061 /* RewardView.swift in Sources */,

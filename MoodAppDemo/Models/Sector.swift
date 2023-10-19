@@ -12,4 +12,8 @@ struct Sector : Identifiable{
     var name: String
     var color: Color
     var desc: String
+    
+    @State var progress: Double = 0
+    
+    var tasks: [Task]
 }

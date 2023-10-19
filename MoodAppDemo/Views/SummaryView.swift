@@ -23,23 +23,23 @@ struct SummaryView: View {
                 }
                 HStack {
                     ZStack {
-                        NavigationLink (destination: TaskHubView()) {
+                        NavigationLink (destination: DailyView()) {
                             Image(systemName: "square.fill")
                                 .resizable()
-                                .foregroundStyle(.blue)
-                                .frame(width: 150, height: 100)
-                        }
-                        Text("Weekly")
-                            .foregroundStyle(.white)
-                    }
-                    ZStack {
-                        NavigationLink (destination: TaskHubView()) {
-                            Image(systemName: "square.fill")
-                                .resizable()
-                                .foregroundStyle(.blue)
+                                .foregroundStyle(.green)
                                 .frame(width: 150, height: 100)
                         }
                         Text("Daily")
+                            .foregroundStyle(.white)
+                    }
+                    ZStack {
+                        NavigationLink (destination: DailyView()) {
+                            Image(systemName: "square.fill")
+                                .resizable()
+                                .foregroundStyle(.brown)
+                                .frame(width: 150, height: 100)
+                        }
+                        Text("Weekly")
                             .foregroundStyle(.white)
                     }
                 }
