@@ -10,7 +10,7 @@ import SwiftUI
 struct TaskHubView: View {
     var sectorView = SectorViewModel()
     
-    @State var progress: Double = 0.38 //temp
+    @State var progress: Double = 0.37 //temp
     
     var body: some View {
         NavigationStack {
