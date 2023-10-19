@@ -10,13 +10,13 @@ import Charts
 
 struct DailyStatsView: View {
     
-    var categories = CategoryViewModel()
+    var categories = SectorViewModel()
     var body: some View {
         
         NavigationStack{
             
             Chart {
-                ForEach(categories.categories) { category in
+                ForEach(categories.sectors) { category in
                     BarMark(
                         x: .value("Category", category.name),
                         y: .value("Total Count", category.name.count)
@@ -27,7 +27,7 @@ struct DailyStatsView: View {
             .padding()
             
             List {
-                ForEach(categories.categories) { category in
+                ForEach(categories.sectors) { category in
                     
                     NavigationLink {
                         PuzzleView()
@@ -37,7 +37,7 @@ struct DailyStatsView: View {
                                 .font(.title2)
                                 .bold()
                                 .foregroundStyle(category.color)
-                            Text(category.details)
+                            Text(category.desc)
                         }
                         .padding()
                     }
