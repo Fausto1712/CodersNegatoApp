@@ -30,6 +30,10 @@ struct MovingSquareView: View {
     
     var body: some View {
         ZStack {
+            Image("Back1")
+                .resizable()
+                .edgesIgnoringSafeArea(.all)
+                .clipShape(RoundedRectangle(cornerSize: CGSize(width: 20, height: 10)))
             ForEach($squares) { squareBinding in
                 Rectangle()
                     .overlay(
@@ -121,7 +125,7 @@ struct SquareDetailModal: View {
     @State private var newName: String = ""
     var square: Square
     @Binding var isModalPresented: Bool
-
+    
     var body: some View {
         VStack {
             Text("Animal Details")
@@ -133,7 +137,7 @@ struct SquareDetailModal: View {
                 .font(.title2)
                 .background(Color.white)
                 .cornerRadius(8)
-
+            
             Text("Date Obtained: \(square.dateObtained)")
                 .padding()
                 .font(.title2)
@@ -145,9 +149,9 @@ struct SquareDetailModal: View {
                 .aspectRatio(contentMode: .fit)
                 .frame(width: 100, height: 100)
                 .clipped()
-
+            
             Spacer()
-
+            
             Button(action: {
                 self.isModalPresented = false
             }) {
@@ -196,5 +200,5 @@ struct Square: Identifiable {
             ["GMD","GMH","GMR","GMU"],
             ["GWD","GWH","GWR","GWU"]
         ].randomElement() ?? ["ABD","ABH","ABR","ABU"])
-        }
+    }
 }
