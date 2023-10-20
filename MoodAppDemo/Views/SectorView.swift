@@ -9,9 +9,10 @@ import SwiftUI
 
 struct SectorView: View {
     
-    var sector: Sector
+    @State var sector: Sector
     
     var body: some View {
+        
         NavigationStack{
             List {
                 ForEach(sector.tasks) { task in
@@ -24,12 +25,19 @@ struct SectorView: View {
                             Text(task.description)
                         }
                         .padding(10)
-                        Image(systemName: "checkmark")
+                        Spacer()
+                        if(task.done) {
+                            Image(systemName: "checkmark.square").onTapGesture {
+                                task.swapDone()
+                            }
+                        } else {
+                            Image(systemName: "square")
+                        }
                     }
                     
                 }
             }
-            .navigationTitle("Learners")
+            .navigationTitle(sector.name)
         }
     }
 }

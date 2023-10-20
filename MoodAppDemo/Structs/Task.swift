@@ -13,4 +13,8 @@ struct Task : Identifiable {
     var name: String
     var description: String
     var done: Bool = false
+    
+    mutating func swapDone() {
+        done = !done
+    }
 }
