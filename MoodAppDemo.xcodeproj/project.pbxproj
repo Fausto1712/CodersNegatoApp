@@ -9,10 +9,10 @@
 /* Begin PBXBuildFile section */
 		27153F392AE185D0009B972C /* WeeklyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27153F382AE185D0009B972C /* WeeklyView.swift */; };
 		27153F3B2AE185D9009B972C /* PuzzleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27153F3A2AE185D9009B972C /* PuzzleView.swift */; };
+		276CA2072AE2C1BE00E183AF /* SectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276CA2062AE2C1BE00E183AF /* SectorView.swift */; };
 		4D84D61B2AE1636C0009A061 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D84D61A2AE1636C0009A061 /* Assets.xcassets */; };
 		4D84D61E2AE1636C0009A061 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D84D61D2AE1636C0009A061 /* Preview Assets.xcassets */; };
 		4D84D62F2AE163CF0009A061 /* SummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D84D6252AE163CF0009A061 /* SummaryView.swift */; };
-		4D84D6302AE163CF0009A061 /* RewardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D84D6262AE163CF0009A061 /* RewardView.swift */; };
 		4D84D6312AE163CF0009A061 /* TaskHubView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D84D6272AE163CF0009A061 /* TaskHubView.swift */; };
 		4D84D6322AE163CF0009A061 /* AnimalFarmView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D84D6282AE163CF0009A061 /* AnimalFarmView.swift */; };
 		4D84D6332AE163CF0009A061 /* MoodAppDemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D84D6292AE163CF0009A061 /* MoodAppDemoApp.swift */; };
@@ -26,11 +26,11 @@
 /* Begin PBXFileReference section */
 		27153F382AE185D0009B972C /* WeeklyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeeklyView.swift; sourceTree = "<group>"; };
 		27153F3A2AE185D9009B972C /* PuzzleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PuzzleView.swift; sourceTree = "<group>"; };
+		276CA2062AE2C1BE00E183AF /* SectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectorView.swift; sourceTree = "<group>"; };
 		4D84D6132AE1636B0009A061 /* MoodAppDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoodAppDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D84D61A2AE1636C0009A061 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4D84D61D2AE1636C0009A061 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		4D84D6252AE163CF0009A061 /* SummaryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SummaryView.swift; sourceTree = "<group>"; };
-		4D84D6262AE163CF0009A061 /* RewardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RewardView.swift; sourceTree = "<group>"; };
 		4D84D6272AE163CF0009A061 /* TaskHubView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskHubView.swift; sourceTree = "<group>"; };
 		4D84D6282AE163CF0009A061 /* AnimalFarmView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimalFarmView.swift; sourceTree = "<group>"; };
 		4D84D6292AE163CF0009A061 /* MoodAppDemoApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoodAppDemoApp.swift; sourceTree = "<group>"; };
@@ -92,8 +92,8 @@
 		4D84D6242AE163CF0009A061 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				276CA2062AE2C1BE00E183AF /* SectorView.swift */,
 				4D84D6252AE163CF0009A061 /* SummaryView.swift */,
-				4D84D6262AE163CF0009A061 /* RewardView.swift */,
 				4D84D6272AE163CF0009A061 /* TaskHubView.swift */,
 				4D84D6282AE163CF0009A061 /* AnimalFarmView.swift */,
 				4D84D63B2AE174480009A061 /* DailyView.swift */,
@@ -196,8 +196,8 @@
 				4D84D63E2AE17D3A0009A061 /* Task.swift in Sources */,
 				4D84D6312AE163CF0009A061 /* TaskHubView.swift in Sources */,
 				4D84D6382AE174130009A061 /* CircularProgressView.swift in Sources */,
-				4D84D6302AE163CF0009A061 /* RewardView.swift in Sources */,
 				4D84D6342AE163CF0009A061 /* SectorViewModel.swift in Sources */,
+				276CA2072AE2C1BE00E183AF /* SectorView.swift in Sources */,
 				4D84D62F2AE163CF0009A061 /* SummaryView.swift in Sources */,
 				27153F3B2AE185D9009B972C /* PuzzleView.swift in Sources */,
 				27153F392AE185D0009B972C /* WeeklyView.swift in Sources */,

@@ -17,28 +17,34 @@ struct PuzzleView: View {
             Text("Complete your daily tasks to unlock a new piece!")
                 .font(.title3)
                 .bold()
-            Grid(horizontalSpacing: 1, verticalSpacing: 1) {
-                ForEach(1..<7) { row in
-                    GridRow {
-                        ForEach(1..<6) { column in
-                            if(check[5*(row - 1) + column - 1]) {
-                                Image("fox\(5*(row - 1) + column)")
-                                    .resizable()
-                                    .aspectRatio(contentMode: .fit)
-                            } else {
-                                Image("locked")
-                                    .resizable()
-                                    .aspectRatio(contentMode: .fit)
+            ZStack {
+                Image("AAD")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                Grid(horizontalSpacing: 1, verticalSpacing: 1) {
+                    ForEach(1..<7) { row in
+                        GridRow {
+                            ForEach(1..<6) { column in
+                                if(check[5*(row - 1) + column - 1]) {
+                                    Image("")
+                                        .resizable()
+                                        .aspectRatio(contentMode: .fit)
+                                } else {
+                                    Image("locked")
+                                        .resizable()
+                                        .aspectRatio(contentMode: .fit)
+                                }
                             }
                         }
                     }
                 }
             }
+            .border(.black)
             .padding()
             Button("CLAIM", action: {
                 //Insert code for claiming your prize here.
             })
-            .disabled(trueCounter != 30)
+            .disabled(trueCounter != 0)
             .navigationTitle("Puzzle")
         }
     }

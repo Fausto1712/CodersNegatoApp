@@ -16,7 +16,7 @@ struct MoodAppDemoApp: App {
                     .tabItem { Label("", systemImage: "calendar")}
                 TaskHubView()
                     .tabItem { Label("", systemImage: "list.clipboard") }
-                RewardView()
+                PuzzleView()
                     .tabItem { Label("", systemImage: "lock.fill") }
                 AnimalFarmView()
                     .tabItem { Label("", systemImage: "person.fill") }

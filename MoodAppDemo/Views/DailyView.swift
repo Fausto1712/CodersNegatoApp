@@ -17,10 +17,12 @@ struct DailyView: View {
                 Spacer().frame(height: 50)
                 ZStack {
                     CircularProgressView(progress: 0.5, color: .orange)
-                        .frame(width: 200, height: 200)
+                        .frame(width: 255, height: 255)
                     CircularProgressView(progress: 0.7, color: .green)
-                        .frame(width: 130, height: 130)
+                        .frame(width: 190, height: 190)
                     CircularProgressView(progress: 0.3, color: .blue)
+                        .frame(width: 125, height: 125)
+                    CircularProgressView(progress: 0.5, color: .purple)
                         .frame(width: 60, height: 60)
                 }
                 Spacer().frame(height: 50)
