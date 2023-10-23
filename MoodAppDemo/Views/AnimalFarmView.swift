@@ -6,12 +6,26 @@
 //
 
 import SwiftUI
+import Combine
+
+class SharedViewModel: ObservableObject {
+    let objectWillChange = PassthroughSubject<Void, Never>()
+    
+    func activateFunction() {
+        print("Function activated!")
+    }
+    
+    func triggerFunction() {
+        objectWillChange.send()
+    }
+}
 
 struct AnimalFarmView: View {
+    @StateObject var sharedViewModel = SharedViewModel()
     var body: some View {
         VStack {
             Spacer()
-            MovingSquareView()
+            MovingSquareView(sharedViewModel: sharedViewModel)
             Spacer()
         }
     }
@@ -22,6 +36,7 @@ struct AnimalFarmView: View {
 }
 
 struct MovingSquareView: View {
+    @ObservedObject var sharedViewModel: SharedViewModel
     @State private var squares: [Square] = []
     @State private var showOverlay = false
     
@@ -70,6 +85,10 @@ struct MovingSquareView: View {
                     .padding(20)
                 }
             }
+        }
+        .onReceive(sharedViewModel.objectWillChange) { _ in
+            self.addSquare()
+            self.sharedViewModel.activateFunction()
         }
         .sheet(isPresented: $isModalPresented) {
             if let selectedSquare = self.selectedSquare {

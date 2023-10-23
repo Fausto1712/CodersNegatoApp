@@ -9,6 +9,7 @@ import SwiftUI
 
 @main
 struct MoodAppDemoApp: App {
+    @StateObject var sharedViewModel = SharedViewModel()
     var body: some Scene {
         WindowGroup {
             TabView {
@@ -16,9 +17,9 @@ struct MoodAppDemoApp: App {
                     .tabItem { Label("", systemImage: "calendar")}
                 TaskHubView()
                     .tabItem { Label("", systemImage: "list.clipboard") }
-                PuzzleView()
+                PuzzleView(sharedViewModel: sharedViewModel)
                     .tabItem { Label("", systemImage: "lock.fill") }
-                AnimalFarmView()
+                AnimalFarmView(sharedViewModel: sharedViewModel)
                     .tabItem { Label("", systemImage: "person.fill") }
             }
         }

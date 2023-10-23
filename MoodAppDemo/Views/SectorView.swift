@@ -28,7 +28,7 @@ struct SectorView: View {
                         Spacer()
                         if(task.done) {
                             Image(systemName: "checkmark.square").onTapGesture {
-                                task.swapDone()
+                                //task.swapDone()
                             }
                         } else {
                             Image(systemName: "square")

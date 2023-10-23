@@ -6,8 +6,10 @@
 //
 
 import SwiftUI
+import Combine
 
 struct PuzzleView: View {
+    @ObservedObject var sharedViewModel: SharedViewModel
     
     var check: [Bool] = [true, false, false, true, true, false, true, true, true, false, true, false, false, true, true, false, true, true, true, false, true, false, false, true, true, false, true, true, true, false]
     var trueCounter: Int = 0
@@ -42,7 +44,7 @@ struct PuzzleView: View {
             .border(.black)
             .padding()
             Button("CLAIM", action: {
-                //Insert code for claiming your prize here.
+                self.sharedViewModel.triggerFunction()
             })
             .disabled(trueCounter != 0)
             .navigationTitle("Puzzle")
@@ -50,6 +52,6 @@ struct PuzzleView: View {
     }
 }
 
-#Preview {
+/*#Preview {
     PuzzleView()
-}
+}*/
