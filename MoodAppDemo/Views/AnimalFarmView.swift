@@ -49,6 +49,7 @@ struct MovingSquareView: View {
                 .resizable()
                 .edgesIgnoringSafeArea(.all)
                 .clipShape(RoundedRectangle(cornerSize: CGSize(width: 20, height: 10)))
+                .padding(10)
             ForEach($squares) { squareBinding in
                 Rectangle()
                     .overlay(
@@ -104,16 +105,14 @@ struct MovingSquareView: View {
     }
     
     func moveRandomly(for square: Binding<Square>) {
-        let screenWidth = UIScreen.main.bounds.width
-        let screenHeight = UIScreen.main.bounds.height
         
         var randomX = square.wrappedValue.position.x
         var randomY = square.wrappedValue.position.y
         
         if (Bool.random()){
-            randomX = CGFloat.random(in: 0...(screenWidth-40))
+            randomX = CGFloat.random(in: 0...(380))
         } else {
-            randomY = CGFloat.random(in: 0...(screenHeight-180))
+            randomY = CGFloat.random(in: 0...(300))
         }
         
         if(randomX != square.wrappedValue.position.x){
@@ -187,7 +186,7 @@ struct SquareDetailModal: View {
 
 struct Square: Identifiable {
     let id = UUID()
-    var position: CGPoint = CGPoint(x: 200, y: 350)
+    var position: CGPoint = CGPoint(x: 200, y: 150)
     var imageName: String = "AAD"
     var animalName: String = "Paco"
     var dateObtained: String = Date().formatted(date: .long, time: .shortened)
