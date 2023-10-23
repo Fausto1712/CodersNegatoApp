@@ -12,16 +12,7 @@ struct MoodAppDemoApp: App {
     @StateObject var sharedViewModel = SharedViewModel()
     var body: some Scene {
         WindowGroup {
-            TabView {
-                SummaryView()
-                    .tabItem { Label("", systemImage: "calendar")}
-                TaskHubView()
-                    .tabItem { Label("", systemImage: "list.clipboard") }
-                PuzzleView(sharedViewModel: sharedViewModel)
-                    .tabItem { Label("", systemImage: "lock.fill") }
-                AnimalFarmView(sharedViewModel: sharedViewModel)
-                    .tabItem { Label("", systemImage: "person.fill") }
-            }
+            SummaryView()
         }
     }
 }
