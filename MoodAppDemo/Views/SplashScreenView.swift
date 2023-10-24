@@ -14,6 +14,8 @@ struct SplashScreenView: View {
             if self.isActive {
                 SummaryView()
             } else {
+                Rectangle()
+                    .background(.white)
                 Image("Team")
                     .resizable()
                     .scaledToFit()
