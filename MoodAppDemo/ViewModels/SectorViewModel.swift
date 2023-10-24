@@ -11,13 +11,13 @@ class SectorViewModel
 {
     var sectors: [Sector] = [
         Sector(name: "Sport", color: .orange, desc: "Walk, Run, Swim", tasks:[
-            Task(name: "Walk 30 minutes", description: "Walk at least for 30 minutes! Time for some fresh air 🚶🏻‍♂️"),
+            Task(name: "Walk 30 minutes", description: "Walk at least for 30 minutes! Time for some fresh air 🚶🏻‍♂️", done: true),
             Task(name: "Run 10 minutes", description: "Run at least for 10 minutes! It's time to sweat 🏃🏻‍♂️")
         ]),
         Sector(name: "Health", color: .green, desc: "Eating, Sleep, Meditation", tasks:[
-            Task(name: "Open the app", description: "Happy to see you today!!! ☺️"),
+            Task(name: "Open the app", description: "Happy to see you today!!! ☺️", done: true),
             Task(name: "Eat 3 times", description: "Eat 3 meals today! Do you feel full? 🍕"),
-            Task(name: "Sleep 8 hours", description: "Have you slept at least 8 hours tonight? 😴")
+            Task(name: "Sleep 8 hours", description: "Have you slept at least 8 hours tonight? 😴", done: true)
         ]),
         Sector(name: "Free Time", color: .cyan, desc: "Hobbies, Passions, Social activities", tasks:[
             Task(name: "Play videogames 2 hours", description: "Don't play videogames for more than 2 hours. It's good to play, but remember to focus also on your work 🎮"),

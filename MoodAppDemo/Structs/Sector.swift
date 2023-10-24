@@ -13,7 +13,18 @@ struct Sector : Identifiable{
     var color: Color
     var desc: String
     
-    @State var progress: Double = 0
+    var progress: Double = 0
     
     var tasks: [Task]
+    
+    mutating func updateProgress() -> Double {
+        var tasksDone = 0
+        for i in 0 ... tasks.count-1 {
+            if tasks[i].done {
+                tasksDone += 1
+            }
+        }
+        progress = Double(tasksDone) / Double(tasks.count)
+        return progress
+    }
 }

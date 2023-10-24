@@ -6,12 +6,11 @@
 //
 
 import SwiftUI
+import Charts
 
 struct SummaryView: View {
     var sectorView = SectorViewModel()
-    @State var progress: Double = 0
     @State var filter = "Daily"
-    var circleSizes:[CGFloat] = [255.0, 190.0, 125.0, 60.0]
     
     var body: some View {
         NavigationStack {
@@ -27,11 +26,38 @@ struct SummaryView: View {
                         .font(.largeTitle)
                 }
                 Spacer().frame(height: 50)
-                ZStack {
-                    ForEach ((0 ... 3), id: \.self) { i in
-                        CircularProgressView(progress: 0.5, color: sectorView.sectors[i].color)
-                            .frame(width: circleSizes[i], height: circleSizes[i])
+                if filter == "Daily" {
+                    ZStack {
+                        ForEach ((0 ... sectorView.sectors.count-1), id: \.self) { i in
+                            CircularProgressView(progress: sectorView.sectors[i].updateProgress(), color: sectorView.sectors[i].color)
+                                .frame(width: 255 - calculateOffset(numSec: sectorView.sectors.count)*Double(i), height: 255 - calculateOffset(numSec: sectorView.sectors.count)*Double(i))
+                            
+                        }
                     }
+                }
+                else if filter == "Weekly" {
+                    Chart {
+                        ForEach ((0 ... sectorView.sectors.count-1), id: \.self) { i in
+                            BarMark(
+                                x: .value("Sector", sectorView.sectors[i].name),
+                                y: .value("Total Count", sectorView.sectors[i].updateProgress())
+                                )
+                            .foregroundStyle(sectorView.sectors[i].color)
+                        }
+                    }
+                    .chartYAxis(.hidden)
+                }
+                else if filter == "Monthly" {
+                    Chart {
+                        ForEach ((0 ... sectorView.sectors.count-1), id: \.self) { i in
+                            LineMark(
+                                x: .value("Sector", sectorView.sectors[i].name),
+                                y: .value("Total Count", sectorView.sectors[i].updateProgress())
+                                )
+                            .foregroundStyle(sectorView.sectors[i].color)
+                        }
+                    }
+                    .chartYAxis(.hidden)
                 }
                 Spacer().frame(height: 50)
                 List {
@@ -68,4 +94,8 @@ struct SummaryView: View {
 
 #Preview {
     SummaryView()
+}
+
+func calculateOffset(numSec: Int) -> Double {
+    return Double(195 / numSec-1) + 15
 }
