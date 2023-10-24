@@ -41,10 +41,9 @@ struct MovingSquareView: View {
                         Image(showOverlay ? squareBinding.wrappedValue.imageName : squareBinding.wrappedValue.imageName)
                             .resizable()
                             .aspectRatio(contentMode: .fit)
-                            .frame(width: 25, height: 20)
+                            .frame(width: 30, height: 30)
                             .clipped()
                     )
-                    .frame(width: 25, height: 25)
                     .foregroundColor(.black.opacity(0))
                     .position(squareBinding.wrappedValue.position)
                     .onTapGesture {
@@ -91,7 +90,7 @@ struct MovingSquareView: View {
         var randomY = square.wrappedValue.position.y
         
         if (Bool.random()){
-            randomX = CGFloat.random(in: 30...(340))
+            randomX = CGFloat.random(in: 30...(350))
         } else {
             randomY = CGFloat.random(in: 34...(195))
         }
