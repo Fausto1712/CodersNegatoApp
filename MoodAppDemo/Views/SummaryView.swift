@@ -15,16 +15,13 @@ struct SummaryView: View {
     var body: some View {
         NavigationStack {
             VStack {
-                Menu {
-                    Picker(selection: $filter) {
-                        Text("Daily").tag("Daily")
-                        Text("Weekly").tag("Weekly")
-                        Text("Monthly").tag("Monthly")
-                    } label: {}
-                } label: {
-                    Text("\(filter) ✎")
-                        .font(.largeTitle)
+                Picker("Filter", selection: $filter) {
+                    Text("Daily").tag("Daily")
+                    Text("Weekly").tag("Weekly")
+                    Text("Monthly").tag("Monthly")
                 }
+                .pickerStyle(.segmented)
+                .frame(width: 300)
                 Spacer().frame(height: 50)
                 if filter == "Daily" {
                     ZStack {
