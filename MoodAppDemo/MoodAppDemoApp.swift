@@ -12,7 +12,7 @@ struct MoodAppDemoApp: App {
     @StateObject var sharedViewModel = SharedViewModel()
     var body: some Scene {
         WindowGroup {
-            SummaryView()
+            SplashScreenView()
         }
     }
 }

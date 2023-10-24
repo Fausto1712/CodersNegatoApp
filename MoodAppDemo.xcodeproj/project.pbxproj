@@ -21,6 +21,7 @@
 		4D84D6382AE174130009A061 /* CircularProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D84D6372AE174130009A061 /* CircularProgressView.swift */; };
 		4D84D63C2AE174480009A061 /* SummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D84D63B2AE174480009A061 /* SummaryView.swift */; };
 		4D84D63E2AE17D3A0009A061 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D84D63D2AE17D3A0009A061 /* Task.swift */; };
+		4DCD620C2AE8007C00A57036 /* SplashScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DCD620B2AE8007C00A57036 /* SplashScreenView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +40,7 @@
 		4D84D6372AE174130009A061 /* CircularProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressView.swift; sourceTree = "<group>"; };
 		4D84D63B2AE174480009A061 /* SummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryView.swift; sourceTree = "<group>"; };
 		4D84D63D2AE17D3A0009A061 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
+		4DCD620B2AE8007C00A57036 /* SplashScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +101,7 @@
 				4D84D63B2AE174480009A061 /* SummaryView.swift */,
 				27153F382AE185D0009B972C /* WeeklyView.swift */,
 				27153F3A2AE185D9009B972C /* PuzzleView.swift */,
+				4DCD620B2AE8007C00A57036 /* SplashScreenView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -192,6 +195,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4D84D63C2AE174480009A061 /* SummaryView.swift in Sources */,
+				4DCD620C2AE8007C00A57036 /* SplashScreenView.swift in Sources */,
 				4D84D6332AE163CF0009A061 /* MoodAppDemoApp.swift in Sources */,
 				4D84D63E2AE17D3A0009A061 /* Task.swift in Sources */,
 				4D84D6312AE163CF0009A061 /* TaskHubView.swift in Sources */,
