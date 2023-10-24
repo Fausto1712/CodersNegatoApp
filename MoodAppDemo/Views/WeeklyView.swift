@@ -9,7 +9,6 @@ import SwiftUI
 import Charts
 
 struct WeeklyView: View {
-    @StateObject var sharedViewModel = SharedViewModel()
     
     var sectors = SectorViewModel()
     var body: some View {
@@ -31,7 +30,7 @@ struct WeeklyView: View {
                 ForEach(sectors.sectors) { sector in
                     
                     NavigationLink {
-                        PuzzleView(sharedViewModel: sharedViewModel)
+                        PuzzleView()
                     } label: {
                         VStack(alignment: .leading) {
                             Text(sector.name)

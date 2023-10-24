@@ -9,7 +9,6 @@ import SwiftUI
 
 @main
 struct MoodAppDemoApp: App {
-    @StateObject var sharedViewModel = SharedViewModel()
     var body: some Scene {
         WindowGroup {
             SplashScreenView()

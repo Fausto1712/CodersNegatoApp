@@ -6,26 +6,12 @@
 //
 
 import SwiftUI
-import Combine
-
-class SharedViewModel: ObservableObject {
-    let objectWillChange = PassthroughSubject<Void, Never>()
-    
-    func activateFunction() {
-        print("Function activated!")
-    }
-    
-    func triggerFunction() {
-        objectWillChange.send()
-    }
-}
 
 struct AnimalFarmView: View {
-    @StateObject var sharedViewModel = SharedViewModel()
     var body: some View {
         VStack {
             Spacer()
-            MovingSquareView(sharedViewModel: sharedViewModel)
+            MovingSquareView()
             Spacer()
         }
     }
@@ -36,7 +22,6 @@ struct AnimalFarmView: View {
 }
 
 struct MovingSquareView: View {
-    @ObservedObject var sharedViewModel: SharedViewModel
     @State private var squares: [Square] = []
     @State private var showOverlay = false
     
@@ -49,17 +34,17 @@ struct MovingSquareView: View {
                 .resizable()
                 .edgesIgnoringSafeArea(.all)
                 .clipShape(RoundedRectangle(cornerSize: CGSize(width: 20, height: 10)))
-                .padding(10)
+                .padding(20)
             ForEach($squares) { squareBinding in
                 Rectangle()
                     .overlay(
                         Image(showOverlay ? squareBinding.wrappedValue.imageName : squareBinding.wrappedValue.imageName)
                             .resizable()
                             .aspectRatio(contentMode: .fit)
-                            .frame(width: 50, height: 40)
+                            .frame(width: 25, height: 20)
                             .clipped()
                     )
-                    .frame(width: 50, height: 50)
+                    .frame(width: 25, height: 25)
                     .foregroundColor(.black.opacity(0))
                     .position(squareBinding.wrappedValue.position)
                     .onTapGesture {
@@ -87,10 +72,6 @@ struct MovingSquareView: View {
                 }
             }
         }
-        .onReceive(sharedViewModel.objectWillChange) { _ in
-            self.addSquare()
-            self.sharedViewModel.activateFunction()
-        }
         .sheet(isPresented: $isModalPresented) {
             if let selectedSquare = self.selectedSquare {
                 SquareDetailModal(square: selectedSquare, isModalPresented: $isModalPresented)
@@ -110,9 +91,9 @@ struct MovingSquareView: View {
         var randomY = square.wrappedValue.position.y
         
         if (Bool.random()){
-            randomX = CGFloat.random(in: 0...(380))
+            randomX = CGFloat.random(in: 30...(340))
         } else {
-            randomY = CGFloat.random(in: 0...(300))
+            randomY = CGFloat.random(in: 34...(195))
         }
         
         if(randomX != square.wrappedValue.position.x){
@@ -165,7 +146,7 @@ struct SquareDetailModal: View {
             Image(square.spriteNames[0])
                 .resizable()
                 .aspectRatio(contentMode: .fit)
-                .frame(width: 100, height: 100)
+                .frame(width: 25, height: 25)
                 .clipped()
             
             Spacer()
@@ -186,7 +167,7 @@ struct SquareDetailModal: View {
 
 struct Square: Identifiable {
     let id = UUID()
-    var position: CGPoint = CGPoint(x: 200, y: 150)
+    var position: CGPoint = CGPoint(x: 200, y: 120)
     var imageName: String = "AAD"
     var animalName: String = "Paco"
     var dateObtained: String = Date().formatted(date: .long, time: .shortened)
