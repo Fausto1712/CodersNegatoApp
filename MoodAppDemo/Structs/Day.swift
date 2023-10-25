@@ -7,7 +7,7 @@
 
 import Foundation
 
-final class Day : Identifiable {
+struct Day : Identifiable {
     
     var id: UUID = UUID()
     var date: Date
@@ -15,14 +15,5 @@ final class Day : Identifiable {
     var health: Int = 0
     var freeTime: Int = 0
     var work: Int = 0
-    
-    init(id: UUID, date: Date, sport: Int, health: Int, freeTime: Int, work: Int) {
-        self.id = id
-        self.date = date
-        self.sport = sport
-        self.health = health
-        self.freeTime = freeTime
-        self.work = work
-    }
     
 }
