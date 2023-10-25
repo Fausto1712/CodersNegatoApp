@@ -6,8 +6,10 @@
 //
 
 import Foundation
+import SwiftData
 
-struct Day : Identifiable {
+@Model
+final class Day : Identifiable {
     
     var id: UUID = UUID()
     var date: Date
@@ -15,5 +17,14 @@ struct Day : Identifiable {
     var health: Int
     var freeTime: Int
     var work: Int
+    
+    init(date: Date, sport: Int, health: Int, freeTime: Int, work: Int) {
+        self.id = UUID()
+        self.date = date
+        self.sport = sport
+        self.health = health
+        self.freeTime = freeTime
+        self.work = work
+    }
     
 }
