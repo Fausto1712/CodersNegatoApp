@@ -11,9 +11,9 @@ struct Day : Identifiable {
     
     var id: UUID = UUID()
     var date: Date
-    var sport: Int = 0
-    var health: Int = 0
-    var freeTime: Int = 0
-    var work: Int = 0
+    var sport: Int
+    var health: Int
+    var freeTime: Int
+    var work: Int
     
 }
