@@ -30,7 +30,7 @@ struct WeeklyView: View {
                 ForEach(sectors.sectors) { sector in
                     
                     NavigationLink {
-                        PuzzleView()
+                       // PuzzleView()
                     } label: {
                         VStack(alignment: .leading) {
                             Text(sector.name)

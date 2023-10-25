@@ -10,45 +10,58 @@ import SwiftUI
 struct SectorView: View {
     
     @State var sector: Sector
-    @State var progress: CGFloat = 0.5
+    @State private var isModalPresented = false
     
     var body: some View {
         
         NavigationStack{
-            VStack(spacing:-15){
-                progressBar()
-                AnimalFarmView()
-                    .frame(height: 250)
-                ScrollView(.vertical){
-                    VStack(spacing:15){
-                        ForEach(sector.tasks) { task in
-                            HStack {
-                                VStack(alignment: .leading) {
-                                    Text(task.name)
-                                        .font(.title2)
-                                        .bold()
-                                    Text(task.description)
-                                }
-                                .padding(10)
-                                Spacer()
-                                if(task.done) {
-                                    Image(systemName: "checkmark.square").onTapGesture {
-                                        //task.swapDone()
+            ZStack{
+                VStack(spacing:-15){
+                    progressBar(isModalPresented: $isModalPresented)
+                    AnimalFarmView()
+                        .frame(height: 250)
+                    ScrollView(.vertical){
+                        VStack(spacing:15){
+                            ForEach(sector.tasks) { task in
+                                HStack {
+                                    VStack(alignment: .leading) {
+                                        Text(task.name)
+                                            .font(.title2)
+                                            .bold()
+                                        Text(task.description)
                                     }
-                                } else {
-                                    Image(systemName: "square")
+                                    .padding(10)
+                                    Spacer()
+                                    if(task.done) {
+                                        Image(systemName: "checkmark.square").onTapGesture {
+                                            //task.swapDone()
+                                        }
+                                    } else {
+                                        Image(systemName: "square")
+                                    }
                                 }
+                                .padding()
+                                .background(Color.white)
+                                .foregroundColor(Color.black)
+                                .cornerRadius(10)
+                                .shadow(color: Color.black.opacity(0.3), radius: 5, x: 0, y: 6)
                             }
-                            .padding()
-                            .background(Color.white)
-                            .foregroundColor(Color.black)
-                            .cornerRadius(10)
-                            .shadow(color: Color.black.opacity(0.3), radius: 5, x: 0, y: 6)
                         }
                     }
+                    .padding()
+                    .navigationTitle(sector.name)
                 }
-                .padding()
-                .navigationTitle(sector.name)
+                if isModalPresented {
+                    Color.black.opacity(0.5)
+                        .edgesIgnoringSafeArea(.all)
+                        .onTapGesture {
+                            isModalPresented = false
+                        }
+                    
+                    PuzzleView(dismiss: {
+                        isModalPresented = false
+                    })
+                }
             }
         }
     }
@@ -65,7 +78,8 @@ struct SectorView: View {
 struct progressBar: View {
     
     @State var progress: CGFloat = 1
-    @State var taskDone: Int = 15
+    @State var taskDone: Int = 29
+    @Binding var isModalPresented: Bool
     
     var body: some View{
         GeometryReader { geometry in
@@ -92,7 +106,10 @@ struct progressBar: View {
                         .resizable()
                         .aspectRatio(contentMode: .fit)
                         .frame(width: 50, height: 50)
-                        .foregroundColor(.black)
+                        .foregroundColor(taskDone == 30 ? .blue : .black)
+                        .onTapGesture {
+                            isModalPresented.toggle()
+                        }
                 }
                 .offset(y:-10)
                 .padding()
