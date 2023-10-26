@@ -22,6 +22,7 @@
 		4D84D6382AE174130009A061 /* CircularProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D84D6372AE174130009A061 /* CircularProgressView.swift */; };
 		4D84D63C2AE174480009A061 /* SummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D84D63B2AE174480009A061 /* SummaryView.swift */; };
 		4D84D63E2AE17D3A0009A061 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D84D63D2AE17D3A0009A061 /* Task.swift */; };
+		4DA748C12AEA921B0028B53C /* TaskViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DA748C02AEA921B0028B53C /* TaskViewModel.swift */; };
 		4DCD620C2AE8007C00A57036 /* SplashScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DCD620B2AE8007C00A57036 /* SplashScreenView.swift */; };
 		5764B6C32AE969AC00A9D5D6 /* Calendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5764B6C22AE969AC00A9D5D6 /* Calendar.swift */; };
 /* End PBXBuildFile section */
@@ -43,6 +44,7 @@
 		4D84D6372AE174130009A061 /* CircularProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressView.swift; sourceTree = "<group>"; };
 		4D84D63B2AE174480009A061 /* SummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryView.swift; sourceTree = "<group>"; };
 		4D84D63D2AE17D3A0009A061 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
+		4DA748C02AEA921B0028B53C /* TaskViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskViewModel.swift; sourceTree = "<group>"; };
 		4DCD620B2AE8007C00A57036 /* SplashScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenView.swift; sourceTree = "<group>"; };
 		5764B6C22AE969AC00A9D5D6 /* Calendar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calendar.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -126,6 +128,7 @@
 			isa = PBXGroup;
 			children = (
 				4D84D62A2AE163CF0009A061 /* SectorViewModel.swift */,
+				4DA748C02AEA921B0028B53C /* TaskViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -213,6 +216,7 @@
 				4D84D62F2AE163CF0009A061 /* OldSummaryView.swift in Sources */,
 				27153F3B2AE185D9009B972C /* PuzzleView.swift in Sources */,
 				27153F392AE185D0009B972C /* WeeklyView.swift in Sources */,
+				4DA748C12AEA921B0028B53C /* TaskViewModel.swift in Sources */,
 				4D84D6322AE163CF0009A061 /* AnimalFarmView.swift in Sources */,
 				4D84D6352AE163CF0009A061 /* Sector.swift in Sources */,
 			);

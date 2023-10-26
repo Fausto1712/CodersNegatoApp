@@ -29,7 +29,7 @@ struct TaskHubView: View {
                                     .foregroundColor(.gray)
                                     .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .leading)
                             }
-                            NavigationLink(destination: SectorView(sector: sector)) {
+                            NavigationLink(destination: SectorView(sectorName: sector.name)) {
                                 Text("Detail")
                                     .foregroundColor(.gray)
                                     .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .trailing)
