@@ -7,8 +7,8 @@
 
 import SwiftUI
 
-struct Sector : Identifiable{
-    var id: UUID = UUID()
+class Sector {
+    //var id: UUID = UUID()
     var name: String
     var color: Color
     var desc: String
@@ -17,7 +17,14 @@ struct Sector : Identifiable{
     
     var tasks: [Task]
     
-    mutating func updateProgress() -> Double {
+    init(name: String, color: Color, desc: String, progress: Double = 0, tasks: [Task]) {
+        self.name = name
+        self.color = color
+        self.desc = desc
+        self.tasks = tasks
+    }
+    
+    func updateProgress() -> Double {
         var tasksDone = 0
         for i in 0 ... tasks.count-1 {
             if tasks[i].done {

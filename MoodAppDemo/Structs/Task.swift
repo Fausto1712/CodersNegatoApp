@@ -7,14 +7,20 @@
 
 import Foundation
 
-struct Task : Identifiable {
-    var id: UUID = UUID()
+class Task {
+    //var id: UUID = UUID()
     
     var name: String
     var description: String
-    var done: Bool = false
+    var done: Bool
     
-    mutating func swapDone() {
+    init(name: String, description: String, done: Bool = false) {
+        self.name = name
+        self.description = description
+        self.done = done
+    }
+    
+    func swapDone() {
         done = !done
     }
 }
