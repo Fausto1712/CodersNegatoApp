@@ -12,8 +12,10 @@ import SwiftData
 final class Calendar {
     
     var daysOfTheMonth: [Day]
+    var dayCounter: Int
     
     init() {
+        self.dayCounter = 0
         self.daysOfTheMonth = [
             Day(date: DateComponents(year: 2023, month: 10, day: 1).date!, sport: 2, health: 3, freeTime: 1, work: 2),
             Day(date: DateComponents(year: 2023, month: 10, day: 2).date!, sport: 1, health: 3, freeTime: 2, work: 0),
