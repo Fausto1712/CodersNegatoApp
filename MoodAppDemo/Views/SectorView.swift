@@ -9,7 +9,7 @@ import SwiftUI
 
 struct SectorView: View {
     
-    var taskViewModel = TaskViewModel()
+    @State var taskViewModel = TaskViewModel()
     @State var sectorName: String
     @State private var isModalPresented = false
     
@@ -23,24 +23,22 @@ struct SectorView: View {
                         .frame(height: 250)
                     ScrollView(.vertical){
                         VStack(spacing:15){
-                            ForEach(taskViewModel.tasks) { task in
-                                if task.sector == sectorName {
+                            ForEach((0 ... taskViewModel.tasks.count-1), id: \.self) { i in
+                                if taskViewModel.tasks[i].sector == sectorName {
                                     HStack {
                                         VStack(alignment: .leading) {
-                                            Text(task.name)
+                                            Text(taskViewModel.tasks[i].name)
                                                 .font(.title2)
                                                 .bold()
-                                            Text(task.description)
+                                            Text(taskViewModel.tasks[i].description)
                                         }
                                         .padding(10)
                                         Spacer()
-                                        if(task.done) {
-                                            Image(systemName: "checkmark.square").onTapGesture {
-                                                //task.swapDone()
-                                            }
-                                        } else {
-                                            Image(systemName: "square")
+                                        Toggle(isOn: $taskViewModel.tasks[i].done) {
+                                            
                                         }
+                                        //.toggleStyle(iOSCheckboxToggleStyle())
+
                                     }
                                     .padding()
                                     .background(Color.white)
