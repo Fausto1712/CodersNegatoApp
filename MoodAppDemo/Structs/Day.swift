@@ -12,15 +12,13 @@ import SwiftData
 final class Day : Identifiable {
     
     var id: UUID = UUID()
-    var date: Date
     var sport: Int
     var health: Int
     var freeTime: Int
     var work: Int
     
-    init(date: Date, sport: Int, health: Int, freeTime: Int, work: Int) {
+    init(sport: Int, health: Int, freeTime: Int, work: Int) {
         self.id = UUID()
-        self.date = date
         self.sport = sport
         self.health = health
         self.freeTime = freeTime

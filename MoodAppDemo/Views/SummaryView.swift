@@ -7,11 +7,14 @@
 
 import SwiftUI
 import Charts
+import SwiftData
 
 struct SummaryView: View {
+    @Environment(\.modelContext) private var modelContext
+    @Query private var calendar: [Calendar]
+    
     var sectorView = SectorViewModel()
     var taskViewModel = TaskViewModel()
-    var calendar = Calendar()
     @State var filter = "Daily"
     
     var body: some View {
@@ -28,7 +31,7 @@ struct SummaryView: View {
                 if filter == "Daily" {
                     ZStack {
                         ForEach ((0 ... sectorView.sectors.count-1), id: \.self) { i in
-                            CircularProgressView(progress: updateProgress(tasksVM: taskViewModel, sector: sectorView.sectors[i].name), color: sectorView.sectors[i].color)
+                            CircularProgressView(progress: Double(1), color: sectorView.sectors[i].color)
                                 .frame(width: 255 - calculateOffset(numSec: sectorView.sectors.count)*Double(i), height: 255 - calculateOffset(numSec: sectorView.sectors.count)*Double(i))
                             
                         }
@@ -93,6 +96,7 @@ struct SummaryView: View {
 
 #Preview {
     SummaryView()
+        .modelContainer(for: Calendar.self, inMemory: true)
 }
 
 func calculateOffset(numSec: Int) -> Double {
