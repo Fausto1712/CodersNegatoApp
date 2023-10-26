@@ -15,7 +15,7 @@ final class Calendar {
     var dayCounter: Int
     
     init() {
-        self.dayCounter = 0
+        self.dayCounter = 5
         self.daysOfTheMonth = [
             Day(sport: 2, health: 3, freeTime: 3, work: 3),
             Day(sport: 1, health: 3, freeTime: 2, work: 0),

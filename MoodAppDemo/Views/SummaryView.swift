@@ -30,6 +30,8 @@ struct SummaryView: View {
                 Spacer().frame(height: 50)
                 if filter == "Daily" {
                     ZStack {
+                        
+                            Text(String(calendar.first?.dayCounter ?? 8))
                         ForEach ((0 ... sectorView.sectors.count-1), id: \.self) { i in
                             CircularProgressView(progress: Double(1), color: sectorView.sectors[i].color)
                                 .frame(width: 255 - calculateOffset(numSec: sectorView.sectors.count)*Double(i), height: 255 - calculateOffset(numSec: sectorView.sectors.count)*Double(i))
@@ -43,7 +45,7 @@ struct SummaryView: View {
                             BarMark(
                                 x: .value("Sector", sectorView.sectors[i].name),
                                 y: .value("Total Count", updateProgress(tasksVM: taskViewModel, sector: sectorView.sectors[i].name))
-                                )
+                            )
                             .foregroundStyle(sectorView.sectors[i].color)
                         }
                     }
@@ -55,7 +57,7 @@ struct SummaryView: View {
                             LineMark(
                                 x: .value("Sector", sectorView.sectors[i].name),
                                 y: .value("Total Count", updateProgress(tasksVM: taskViewModel, sector: sectorView.sectors[i].name))
-                                )
+                            )
                             .foregroundStyle(sectorView.sectors[i].color)
                         }
                     }
@@ -91,8 +93,18 @@ struct SummaryView: View {
                 
             }
         }
+        .onAppear(perform: addCalendar)
+    }
+    
+    private func addCalendar() -> Void {
+        if (calendar.count == 0) {
+            let newCalendar = Calendar()
+            //modelContext.insert(newCalendar)
+            print(newCalendar.dayCounter)
+        }
     }
 }
+
 
 #Preview {
     SummaryView()
