@@ -11,6 +11,7 @@ import Charts
 struct SummaryView: View {
     var sectorView = SectorViewModel()
     var taskViewModel = TaskViewModel()
+    var calendar = Calendar()
     @State var filter = "Daily"
     
     var body: some View {
