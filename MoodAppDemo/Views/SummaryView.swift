@@ -11,11 +11,11 @@ import SwiftData
 
 struct SummaryView: View {
     @Environment(\.modelContext) private var modelContext
-    @Query(sort: \Day.sport) private var days: [Day]
+    @Query(sort: \Day.dayNum) private var days: [Day]
     
     var sectorView = SectorViewModel()
     var taskViewModel = TaskViewModel()
-    @State var filter = "Daily"
+    @State var filter = "Weekly"
     
     var body: some View {
         NavigationStack {
@@ -30,31 +30,43 @@ struct SummaryView: View {
                 Spacer().frame(height: 50)
                 if filter == "Daily" {
                     ZStack {
-                        CircularProgressView(progress: Double(days[1].sport)/3, color: sectorView.sectors[0].color)
+                        CircularProgressView(progress: Double(days[0].sport)/3, color: sectorView.sectors[0].color)
                             .frame(width: 255, height: 255)
-                        CircularProgressView(progress: Double(days[1].health)/3, color: sectorView.sectors[1].color)
+                        CircularProgressView(progress: Double(days[0].health)/3, color: sectorView.sectors[1].color)
                             .frame(width: 190, height: 190)
-                        CircularProgressView(progress: Double(days[1].freeTime)/3, color: sectorView.sectors[2].color)
+                        CircularProgressView(progress: Double(days[0].freeTime)/3, color: sectorView.sectors[2].color)
                             .frame(width: 125, height: 125)
-                        CircularProgressView(progress: Double(days[1].work)/3, color: sectorView.sectors[3].color)
+                        CircularProgressView(progress: Double(days[0].work)/3, color: sectorView.sectors[3].color)
                             .frame(width: 60, height: 60)
-                        
                     }
                 }
                 else if filter == "Weekly" {
                     Chart {
-                        ForEach ((0 ... sectorView.sectors.count-1), id: \.self) { i in
-                            BarMark(
-                                x: .value("Sector", sectorView.sectors[i].name),
-                                y: .value("Total Count", updateProgress(tasksVM: taskViewModel, sector: sectorView.sectors[i].name))
-                            )
-                            .foregroundStyle(sectorView.sectors[i].color)
-                        }
+                        BarMark(
+                            x: .value("Sector", "Sports"),
+                            y: .value("Total Count", updateWeeklyProgress(daysSt: days, currentDays: 22,Sector: "Sport"))
+                        )
+                        .foregroundStyle(sectorView.sectors[0].color)
+                        BarMark(
+                            x: .value("Sector", "Health"),
+                            y: .value("Total Count", updateWeeklyProgress(daysSt: days, currentDays: 22,Sector: "Health"))
+                        )
+                        .foregroundStyle(sectorView.sectors[1].color)
+                        BarMark(
+                            x: .value("Sector", "FreeTime"),
+                            y: .value("Total Count", updateWeeklyProgress(daysSt: days, currentDays: 22,Sector: "FreeTime"))
+                        )
+                        .foregroundStyle(sectorView.sectors[2].color)
+                        BarMark(
+                            x: .value("Sector", "Work"),
+                            y: .value("Total Count", updateWeeklyProgress(daysSt: days, currentDays: 22,Sector: "Work"))
+                        )
+                        .foregroundStyle(sectorView.sectors[3].color)
                     }
-                    .chartYAxis(.hidden)
+                  
                 }
                 else if filter == "Monthly" {
-                    Chart {
+                    /*Chart {
                         ForEach ((0 ... sectorView.sectors.count-1), id: \.self) { i in
                             LineMark(
                                 x: .value("Sector", sectorView.sectors[i].name),
@@ -63,7 +75,7 @@ struct SummaryView: View {
                             .foregroundStyle(sectorView.sectors[i].color)
                         }
                     }
-                    .chartYAxis(.hidden)
+                    .chartYAxis(.hidden)*/
                 }
                 Spacer().frame(height: 50)
                 List {
@@ -101,15 +113,17 @@ struct SummaryView: View {
     private func addCalendar() -> Void {
         if (days.isEmpty) {
             for j in 1...30 {
-                let day = Day(sport: j, health: j+1, freeTime: j+3, work: 2*j)
+                let day = Day(dayNum: j, sport: Int.random(in: 0...3), health: Int.random(in: 0...3), freeTime: Int.random(in: 0...3), work: Int.random(in: 0...3))
                 modelContext.insert(day)
             }
         }
-        /*do {
-           try modelContext.delete(model: Day.self)
-        } catch {
-            print("Error")
-        }*/
+        /*
+         do {
+         try modelContext.delete(model: Day.self)
+         } catch {
+         print("Error")
+         }
+         */
     }
 }
 
@@ -119,20 +133,51 @@ struct SummaryView: View {
         .modelContainer(for: Day.self, inMemory: true)
 }
 
-func calculateOffset(numSec: Int) -> Double {
-    return Double(195 / numSec-1) + 15
-}
-
-func updateProgress(tasksVM: TaskViewModel, sector: String) -> Double {
-    var tasksDone = 0
-    var totalTasks = 0
-    for i in 0 ... tasksVM.tasks.count-1 {
-        if tasksVM.tasks[i].sector == sector {
-            totalTasks += 1
-            if tasksVM.tasks[i].done {
-                tasksDone += 1
+func updateWeeklyProgress(daysSt: [Day],currentDays: Int,Sector: String) -> Double {
+    var counterSum = 0
+    let currentDay = currentDays-1
+    if Sector == "Sport" {
+        if currentDay < 7 {
+            for i in 0...currentDay{
+                counterSum = counterSum + daysSt[i].sport
+            }
+        } else {
+            for i in currentDay - 6...currentDay{
+                counterSum = counterSum + daysSt[i].sport
+                print(daysSt[i].sport)
+            }
+        }
+    } else if Sector == "Health" {
+        if currentDay < 7 {
+            for i in 0...currentDay{
+                counterSum = counterSum + daysSt[i].health
+            }
+        } else {
+            for i in currentDay - 6...currentDay{
+                counterSum = counterSum + daysSt[i].health
+            }
+        }
+    } else if Sector == "Work" {
+        if currentDay < 7 {
+            for i in 0...currentDay{
+                counterSum = counterSum + daysSt[i].work
+            }
+        } else {
+            for i in currentDay - 6...currentDay{
+                counterSum = counterSum + daysSt[i].work
+            }
+        }
+    } else if Sector == "FreeTime" {
+        if currentDay < 7 {
+            for i in 0...currentDay{
+                counterSum = counterSum + daysSt[i].work
+            }
+        } else {
+            for i in currentDay - 6...currentDay{
+                counterSum = counterSum + daysSt[i].work
             }
         }
     }
-    return Double(tasksDone) / Double(totalTasks)
+    
+    return Double(counterSum)
 }

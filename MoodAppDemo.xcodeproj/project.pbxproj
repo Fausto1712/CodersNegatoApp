@@ -26,7 +26,6 @@
 		4DA748C12AEA921B0028B53C /* TaskViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DA748C02AEA921B0028B53C /* TaskViewModel.swift */; };
 		4DA748C32AEAA1660028B53C /* iOSCheckboxToggleStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DA748C22AEAA1660028B53C /* iOSCheckboxToggleStyle.swift */; };
 		4DCD620C2AE8007C00A57036 /* SplashScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DCD620B2AE8007C00A57036 /* SplashScreenView.swift */; };
-		5764B6C32AE969AC00A9D5D6 /* Calendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5764B6C22AE969AC00A9D5D6 /* Calendar.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,7 +49,6 @@
 		4DA748C02AEA921B0028B53C /* TaskViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskViewModel.swift; sourceTree = "<group>"; };
 		4DA748C22AEAA1660028B53C /* iOSCheckboxToggleStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSCheckboxToggleStyle.swift; sourceTree = "<group>"; };
 		4DCD620B2AE8007C00A57036 /* SplashScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenView.swift; sourceTree = "<group>"; };
-		5764B6C22AE969AC00A9D5D6 /* Calendar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calendar.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,7 +122,6 @@
 				4D84D62C2AE163CF0009A061 /* Sector.swift */,
 				4D84D6372AE174130009A061 /* CircularProgressView.swift */,
 				4D84D63D2AE17D3A0009A061 /* Task.swift */,
-				5764B6C22AE969AC00A9D5D6 /* Calendar.swift */,
 				4DA748C22AEAA1660028B53C /* iOSCheckboxToggleStyle.swift */,
 			);
 			path = Structs;
@@ -214,7 +211,6 @@
 				4D84D63C2AE174480009A061 /* SummaryView.swift in Sources */,
 				4DCD620C2AE8007C00A57036 /* SplashScreenView.swift in Sources */,
 				4D84D6332AE163CF0009A061 /* MoodAppDemoApp.swift in Sources */,
-				5764B6C32AE969AC00A9D5D6 /* Calendar.swift in Sources */,
 				4D84D63E2AE17D3A0009A061 /* Task.swift in Sources */,
 				4D84D6312AE163CF0009A061 /* TaskHubView.swift in Sources */,
 				4D84D6382AE174130009A061 /* CircularProgressView.swift in Sources */,
