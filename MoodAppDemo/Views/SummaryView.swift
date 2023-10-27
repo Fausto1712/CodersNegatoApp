@@ -66,16 +66,48 @@ struct SummaryView: View {
                   
                 }
                 else if filter == "Monthly" {
-                    /*Chart {
-                        ForEach ((0 ... sectorView.sectors.count-1), id: \.self) { i in
-                            LineMark(
-                                x: .value("Sector", sectorView.sectors[i].name),
-                                y: .value("Total Count", updateProgress(tasksVM: taskViewModel, sector: sectorView.sectors[i].name))
-                            )
-                            .foregroundStyle(sectorView.sectors[i].color)
+                    ZStack{
+                        Chart {
+                            ForEach (days) { day in
+                                LineMark(
+                                    x: .value("Day", day.dayNum),
+                                    y: .value("Total Count", day.sport)
+                                )
+                                .foregroundStyle(sectorView.sectors[0].color)
+                            }
                         }
+                        .chartYAxis(.hidden)
+                        Chart {
+                            ForEach (days) { day in
+                                LineMark(
+                                    x: .value("Day", day.dayNum),
+                                    y: .value("Total Count", day.health)
+                                )
+                                .foregroundStyle(sectorView.sectors[1].color)
+                            }
+                        }
+                        .chartYAxis(.hidden)
+                        Chart {
+                            ForEach (days) { day in
+                                LineMark(
+                                    x: .value("Day", day.dayNum),
+                                    y: .value("Total Count", day.freeTime)
+                                )
+                                .foregroundStyle(sectorView.sectors[2].color)
+                            }
+                        }
+                        .chartYAxis(.hidden)
+                        Chart {
+                            ForEach (days) { day in
+                                LineMark(
+                                    x: .value("Day", day.dayNum),
+                                    y: .value("Total Count", day.work)
+                                )
+                                .foregroundStyle(sectorView.sectors[3].color)
+                            }
+                        }
+                        .chartYAxis(.hidden)
                     }
-                    .chartYAxis(.hidden)*/
                 }
                 Spacer().frame(height: 50)
                 List {
