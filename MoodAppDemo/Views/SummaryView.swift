@@ -30,11 +30,15 @@ struct SummaryView: View {
                 Spacer().frame(height: 50)
                 if filter == "Daily" {
                     ZStack {
-                        ForEach ((0 ... sectorView.sectors.count-1), id: \.self) { i in
-                            CircularProgressView(progress: Double(1), color: sectorView.sectors[i].color)
-                                .frame(width: 255 - calculateOffset(numSec: sectorView.sectors.count)*Double(i), height: 255 - calculateOffset(numSec: sectorView.sectors.count)*Double(i))
-                            
-                        }
+                        CircularProgressView(progress: Double(days[1].sport)/3, color: sectorView.sectors[0].color)
+                            .frame(width: 255, height: 255)
+                        CircularProgressView(progress: Double(days[1].health)/3, color: sectorView.sectors[1].color)
+                            .frame(width: 190, height: 190)
+                        CircularProgressView(progress: Double(days[1].freeTime)/3, color: sectorView.sectors[2].color)
+                            .frame(width: 125, height: 125)
+                        CircularProgressView(progress: Double(days[1].work)/3, color: sectorView.sectors[3].color)
+                            .frame(width: 60, height: 60)
+                        
                     }
                 }
                 else if filter == "Weekly" {
