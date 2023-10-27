@@ -95,12 +95,17 @@ struct SummaryView: View {
     }
     
     private func addCalendar() -> Void {
-        if (!days.isEmpty) {
-            ForEach(0 ... 30, id: \.self) { j in
+        if (days.isEmpty) {
+            for j in 1...30 {
                 let day = Day(sport: j, health: j+1, freeTime: j+3, work: 2*j)
                 modelContext.insert(day)
             }
         }
+        /*do {
+           try modelContext.delete(model: Day.self)
+        } catch {
+            print("Error")
+        }*/
     }
 }
 
