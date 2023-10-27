@@ -25,26 +25,7 @@ struct SectorView: View {
                         VStack(spacing:15){
                             ForEach((0 ... taskViewModel.tasks.count-1), id: \.self) { i in
                                 if taskViewModel.tasks[i].sector == sectorName {
-                                    HStack {
-                                        VStack(alignment: .leading) {
-                                            Text(taskViewModel.tasks[i].name)
-                                                .font(.title2)
-                                                .bold()
-                                            Text(taskViewModel.tasks[i].description)
-                                        }
-                                        .padding(10)
-                                        Spacer()
-                                        Toggle(isOn: $taskViewModel.tasks[i].done) {
-                                            
-                                        }
-                                        //.toggleStyle(iOSCheckboxToggleStyle())
-
-                                    }
-                                    .padding()
-                                    .background(Color.white)
-                                    .foregroundColor(Color.black)
-                                    .cornerRadius(10)
-                                    .shadow(color: Color.black.opacity(0.3), radius: 5, x: 0, y: 6)
+                                    TaskView(task: taskViewModel.tasks[i])
                                 }
                             }
                         }
