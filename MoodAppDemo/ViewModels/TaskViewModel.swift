@@ -6,10 +6,14 @@
 //
 
 import Foundation
+import SwiftData
 
 class TaskViewModel {
     
-    var tasks: [Task] = [
+    var tasks: [Task]
+    
+    init() {
+        self.tasks = [
             Task(name: "Walk 30 minutes", description: "Walk at least for 30 minutes! Time for some fresh air 🚶🏻‍♂️", done: true, sector: "Sport"),
             Task(name: "Run 10 minutes", description: "Run at least for 10 minutes! It's time to sweat 🏃🏻‍♂️", done: false, sector: "Sport"),
             Task(name: "Swim 40 minutes", description: "Swim for at least 40 minutes! It's time to get cool off 🏊‍♂️", done: false, sector: "Sport"),
@@ -26,4 +30,5 @@ class TaskViewModel {
             Task(name: "Learn how to code", description: "Exercise your coding skills today! print(\"Hello World!\") 👨🏻‍💻", done: false, sector: "Work"),
             Task(name: "Clean the house", description: "Take a few minutes to mop and wipe the counters, Make them shinny 🧹", done: false, sector: "Work")
         ]
+    }
 }

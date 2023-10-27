@@ -12,8 +12,7 @@ import SwiftData
 struct MoodAppDemoApp: App {
     var sharedModelContainer: ModelContainer = {
         let schema = Schema([
-            Day.self,
-            Calendar.self
+            Day.self
         ])
         let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
 

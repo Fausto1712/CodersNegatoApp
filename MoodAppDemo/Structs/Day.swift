@@ -11,14 +11,12 @@ import SwiftData
 @Model
 final class Day : Identifiable {
     
-    var id: UUID = UUID()
     var sport: Int
     var health: Int
     var freeTime: Int
     var work: Int
     
     init(sport: Int, health: Int, freeTime: Int, work: Int) {
-        self.id = UUID()
         self.sport = sport
         self.health = health
         self.freeTime = freeTime

@@ -11,7 +11,7 @@ import SwiftData
 
 struct SummaryView: View {
     @Environment(\.modelContext) private var modelContext
-    @Query private var calendar: [Calendar]
+    @Query(sort: \Day.sport) private var days: [Day]
     
     var sectorView = SectorViewModel()
     var taskViewModel = TaskViewModel()
@@ -30,8 +30,6 @@ struct SummaryView: View {
                 Spacer().frame(height: 50)
                 if filter == "Daily" {
                     ZStack {
-                        
-                            Text(String(calendar.first?.dayCounter ?? 8))
                         ForEach ((0 ... sectorView.sectors.count-1), id: \.self) { i in
                             CircularProgressView(progress: Double(1), color: sectorView.sectors[i].color)
                                 .frame(width: 255 - calculateOffset(numSec: sectorView.sectors.count)*Double(i), height: 255 - calculateOffset(numSec: sectorView.sectors.count)*Double(i))
@@ -97,10 +95,11 @@ struct SummaryView: View {
     }
     
     private func addCalendar() -> Void {
-        if (calendar.count == 0) {
-            let newCalendar = Calendar()
-            //modelContext.insert(newCalendar)
-            print(newCalendar.dayCounter)
+        if (!days.isEmpty) {
+            ForEach(0 ... 30, id: \.self) { j in
+                let day = Day(sport: j, health: j+1, freeTime: j+3, work: 2*j)
+                modelContext.insert(day)
+            }
         }
     }
 }
@@ -108,7 +107,7 @@ struct SummaryView: View {
 
 #Preview {
     SummaryView()
-        .modelContainer(for: Calendar.self, inMemory: true)
+        .modelContainer(for: Day.self, inMemory: true)
 }
 
 func calculateOffset(numSec: Int) -> Double {
