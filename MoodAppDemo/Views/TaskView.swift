@@ -8,10 +8,10 @@
 import SwiftUI
 
 struct TaskView: View {
-    @AppStorage("doneSportTasks") var sportTasks = 0
-    @AppStorage("doneHealthTasks") var healthTasks = 0
-    @AppStorage("doneFreeTimeTasks") var freeTasks = 0
-    @AppStorage("doneWorkTasks") var workTasks = 0
+    @AppStorage("doneSportTasks") var sportTasks = 29
+    @AppStorage("doneHealthTasks") var healthTasks = 15
+    @AppStorage("doneFreeTimeTasks") var freeTasks = 7
+    @AppStorage("doneWorkTasks") var workTasks = 19
     
     @State var task: Task
     var body: some View {
@@ -45,10 +45,6 @@ struct TaskView: View {
                 default:
                     print("nop")
                 }
-                print(sportTasks)
-                print(healthTasks)
-                print(freeTasks)
-                print(workTasks)
             }
             .toggleStyle(iOSCheckboxToggleStyle())
 

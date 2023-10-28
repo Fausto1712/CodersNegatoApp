@@ -6,23 +6,65 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct AnimalFarmView: View {
+    @Environment(\.modelContext) private var modelContext
+    @Query private var animals: [SquareAnimal]
+    
+    @State var squares: [Square] = []
+    @Binding var newAnimalName: String
+    
     var body: some View {
         VStack {
             Spacer()
-            MovingSquareView()
+            MovingSquareView(squares: $squares)
             Spacer()
+        }.onAppear(perform: addSquareAnimals)
+            .onChange(of: newAnimalName) {animalClaim()}
+    }
+    
+    private func animalClaim() -> Void {
+        if newAnimalName != ""{
+            modelContext.insert(SquareAnimal(imageName: "AAD", animalName: newAnimalName, dateObtained: Date().formatted(date: .long, time: .shortened), spriteNames: ["AAD","AAH","AAR","AAU"]))
+            newAnimalName = ""
+            
+            var newSquare = Square()
+            newSquare.imageName = "AAD"
+            newSquare.animalName = newAnimalName
+            newSquare.dateObtained = Date().formatted(date: .long, time: .shortened)
+            newSquare.spriteNames = ["AAD","AAH","AAR","AAU"]
+            squares.append(newSquare)
         }
+    }
+    
+    private func addSquareAnimals() -> Void {
+        if (animals.isEmpty) {
+            modelContext.insert(SquareAnimal(imageName: "ABD", animalName: "Rodolfo", dateObtained: "28/10/2023 - 12:05", spriteNames: ["ABD","ABH","ABR" ,"ABU"]))
+            modelContext.insert(SquareAnimal(imageName: "ASD", animalName: "Jacinto", dateObtained: "15/10/2023 - 12:25", spriteNames: ["ASD","ASH","ASR","ASU"]))
+            modelContext.insert(SquareAnimal(imageName: "BMD", animalName: "Paco", dateObtained: "12/10/2023 - 12:33", spriteNames: ["BMD","BMH","BMR","BMU"]))
+            modelContext.insert(SquareAnimal(imageName: "AVD", animalName: "Maximiliano", dateObtained: "28/10/2023 - 2:42", spriteNames: ["AVD","AVH","AVR","AVU"]))
+            modelContext.insert(SquareAnimal(imageName: "AWD", animalName: "Kuko", dateObtained: "11/10/2023 - 8:05", spriteNames: ["AWD","AWH","AWR","AWU"]))
+        }
+        /*
+        for i in 0...animals.count-1 {
+            var newSquare = Square()
+            newSquare.imageName = animals[i].imageName
+            newSquare.animalName = animals[i].animalName
+            newSquare.dateObtained = animals[i].dateObtained
+            newSquare.spriteNames = animals[i].spriteNames
+            squares.append(newSquare)
+        }*/
     }
 }
 
-#Preview {
-    AnimalFarmView()
-}
+/*#Preview {
+    AnimalFarmView(, isAnimalClaimed: true)
+        .modelContainer(for: SquareAnimal.self, inMemory: true)
+}*/
 
 struct MovingSquareView: View {
-    @State private var squares: [Square] = []
+    @Binding var squares: [Square]
     @State private var showOverlay = false
     
     @State private var isModalPresented: Bool = false
@@ -54,34 +96,12 @@ struct MovingSquareView: View {
                         self.moveRandomly(for: squareBinding)
                     }
             }
-            
-            VStack {
-                Spacer()
-                HStack {
-                    Spacer()
-                    Button(action: {
-                        self.addSquare()
-                    }) {
-                        Image(systemName: "plus.circle.fill")
-                            .resizable()
-                            .frame(width: 30, height: 30)
-                            .foregroundColor(.green)
-                    }
-                    .padding(20)
-                }
-            }
         }
         .sheet(isPresented: $isModalPresented) {
             if let selectedSquare = self.selectedSquare {
                 SquareDetailModal(square: selectedSquare, isModalPresented: $isModalPresented)
             }
         }
-    }
-    
-    func addSquare() {
-        var newSquare = Square()
-        newSquare.animalName = "Jacinto"
-        squares.append(newSquare)
     }
     
     func moveRandomly(for square: Binding<Square>) {
@@ -170,9 +190,9 @@ struct Square: Identifiable {
     var imageName: String = "AAD"
     var animalName: String = "Paco"
     var dateObtained: String = Date().formatted(date: .long, time: .shortened)
-    @Binding var spriteNames: [String]
+    var spriteNames: [String] = ["AAD","AAH","AAR","AAU"]
     
-    init() {
+    /*init() {
         self._spriteNames = Binding.constant([
             ["AAD","AAH","AAR","AAU"],
             ["ABD","ABH","ABR" ,"ABU"],
@@ -198,5 +218,5 @@ struct Square: Identifiable {
             ["GMD","GMH","GMR","GMU"],
             ["GWD","GWH","GWR","GWU"]
         ].randomElement() ?? ["ABD","ABH","ABR","ABU"])
-    }
+    }*/
 }

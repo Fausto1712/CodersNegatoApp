@@ -13,9 +13,11 @@ struct SummaryView: View {
     @Environment(\.modelContext) private var modelContext
     @Query(sort: \Day.dayNum) private var days: [Day]
     
+    @AppStorage("dayCounter") var dayCounter = 22
+    
     var sectorView = SectorViewModel()
     var taskViewModel = TaskViewModel()
-    @State var filter = "Weekly"
+    @State var filter = "Daily"
     
     var body: some View {
         NavigationStack {
@@ -168,6 +170,7 @@ struct SummaryView: View {
 func updateWeeklyProgress(daysSt: [Day],currentDays: Int,Sector: String) -> Double {
     var counterSum = 0
     let currentDay = currentDays-1
+    /*
     if Sector == "Sport" {
         if currentDay < 7 {
             for i in 0...currentDay{
@@ -176,7 +179,6 @@ func updateWeeklyProgress(daysSt: [Day],currentDays: Int,Sector: String) -> Doub
         } else {
             for i in currentDay - 6...currentDay{
                 counterSum = counterSum + daysSt[i].sport
-                print(daysSt[i].sport)
             }
         }
     } else if Sector == "Health" {
@@ -210,6 +212,6 @@ func updateWeeklyProgress(daysSt: [Day],currentDays: Int,Sector: String) -> Doub
             }
         }
     }
-    
+    */
     return Double(counterSum)
 }

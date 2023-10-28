@@ -12,15 +12,35 @@ struct SectorView: View {
     @State var taskViewModel = TaskViewModel()
     @State var sectorName: String
     @State private var isModalPresented = false
+    @State private var newAnimalName = ""
+    
+    @AppStorage("doneSportTasks") var sportTasks = 29
+    @AppStorage("doneHealthTasks") var healthTasks = 15
+    @AppStorage("doneFreeTimeTasks") var freeTasks = 7
+    @AppStorage("doneWorkTasks") var workTasks = 19
     
     var body: some View {
         
         NavigationStack{
             ZStack{
                 VStack(spacing:-15){
-                    progressBar(isModalPresented: $isModalPresented)
-                    AnimalFarmView()
-                        .frame(height: 250)
+                    if (sectorName == "Sport"){
+                        progressBar(taskDone: $sportTasks, isModalPresented: $isModalPresented)
+                        AnimalFarmView(newAnimalName: $newAnimalName)
+                            .frame(height: 250)
+                    } else if (sectorName == "Health"){
+                        progressBar(taskDone: $healthTasks, isModalPresented: $isModalPresented)
+                        AnimalFarmView(newAnimalName: $newAnimalName)
+                            .frame(height: 250)
+                    } else if (sectorName == "Free Time"){
+                        progressBar(taskDone: $freeTasks, isModalPresented: $isModalPresented)
+                        AnimalFarmView(newAnimalName: $newAnimalName)
+                            .frame(height: 250)
+                    } else if (sectorName == "Work"){
+                        progressBar(taskDone: $workTasks, isModalPresented: $isModalPresented)
+                        AnimalFarmView(newAnimalName: $newAnimalName)
+                            .frame(height: 250)
+                    }
                     ScrollView(.vertical){
                         VStack(spacing:15){
                             ForEach((0 ... taskViewModel.tasks.count-1), id: \.self) { i in
@@ -39,10 +59,15 @@ struct SectorView: View {
                         .onTapGesture {
                             isModalPresented = false
                         }
-                    
-                    PuzzleView(dismiss: {
-                        isModalPresented = false
-                    })
+                    if (sectorName == "Sport"){
+                        PuzzleView(newAnimalName: $newAnimalName, puzzleSector: "Sport", dismiss: {isModalPresented = false})
+                    } else if (sectorName == "Health"){
+                        PuzzleView(newAnimalName: $newAnimalName, puzzleSector: "Health", dismiss: {isModalPresented = false})
+                    } else if (sectorName == "Free Time"){
+                        PuzzleView(newAnimalName: $newAnimalName, puzzleSector: "Free Time", dismiss: {isModalPresented = false})
+                    } else if (sectorName == "Work"){
+                        PuzzleView(newAnimalName: $newAnimalName, puzzleSector: "Work", dismiss: {isModalPresented = false})
+                    }
                 }
             }
         }
@@ -54,9 +79,7 @@ struct SectorView: View {
 }
 
 struct progressBar: View {
-    
-    @State var progress: CGFloat = 1
-    @State var taskDone: Int = 29
+    @Binding var taskDone: Int
     @Binding var isModalPresented: Bool
     
     var body: some View{

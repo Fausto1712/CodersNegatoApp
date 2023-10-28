@@ -26,6 +26,7 @@
 		4DA748C12AEA921B0028B53C /* TaskViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DA748C02AEA921B0028B53C /* TaskViewModel.swift */; };
 		4DA748C32AEAA1660028B53C /* iOSCheckboxToggleStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DA748C22AEAA1660028B53C /* iOSCheckboxToggleStyle.swift */; };
 		4DCD620C2AE8007C00A57036 /* SplashScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DCD620B2AE8007C00A57036 /* SplashScreenView.swift */; };
+		57055A2A2AED6ADC00608C42 /* Squares.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57055A292AED6ADC00608C42 /* Squares.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,6 +50,7 @@
 		4DA748C02AEA921B0028B53C /* TaskViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskViewModel.swift; sourceTree = "<group>"; };
 		4DA748C22AEAA1660028B53C /* iOSCheckboxToggleStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSCheckboxToggleStyle.swift; sourceTree = "<group>"; };
 		4DCD620B2AE8007C00A57036 /* SplashScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenView.swift; sourceTree = "<group>"; };
+		57055A292AED6ADC00608C42 /* Squares.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Squares.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +121,7 @@
 			isa = PBXGroup;
 			children = (
 				27E4B6792AE80C0300414E14 /* Day.swift */,
+				57055A292AED6ADC00608C42 /* Squares.swift */,
 				4D84D62C2AE163CF0009A061 /* Sector.swift */,
 				4D84D6372AE174130009A061 /* CircularProgressView.swift */,
 				4D84D63D2AE17D3A0009A061 /* Task.swift */,
@@ -206,6 +209,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				57055A2A2AED6ADC00608C42 /* Squares.swift in Sources */,
 				4DA748C32AEAA1660028B53C /* iOSCheckboxToggleStyle.swift in Sources */,
 				27E4B67A2AE80C0300414E14 /* Day.swift in Sources */,
 				4D84D63C2AE174480009A061 /* SummaryView.swift in Sources */,

@@ -9,6 +9,14 @@ import SwiftUI
 import Combine
 
 struct PuzzleView: View {
+    @AppStorage("doneSportTasks") var sportTasks = 29
+    @AppStorage("doneHealthTasks") var healthTasks = 15
+    @AppStorage("doneFreeTimeTasks") var freeTasks = 7
+    @AppStorage("doneWorkTasks") var workTasks = 19
+    
+    @Binding var newAnimalName: String
+    @State private var textFieldValue = ""
+    var puzzleSector: String
     
     var check: [Bool] = [true, true, true, true, true, true, true, true, true, true, true, true, false, true, true, false, true, true, true, true, true, false, false, true, true, false, true, true, true, false]
     var trueCounter: Int = 0
@@ -45,8 +53,24 @@ struct PuzzleView: View {
                 }
                 .border(.black)
                 .padding()
+                TextField("Enter new name", text: $textFieldValue)
+                                    .padding()
+                                    .textFieldStyle(RoundedBorderTextFieldStyle())
                 Button("CLAIM", action: {
-                    //Create Animal
+                    if (puzzleSector == "Sport" && sportTasks == 30){
+                        sportTasks = 0
+                        newAnimalName = textFieldValue
+                    } else if (puzzleSector == "Health" && healthTasks == 30){
+                        healthTasks = 0
+                        newAnimalName = textFieldValue
+                    } else if (puzzleSector == "Free Time" && freeTasks == 30){
+                        freeTasks = 0
+                        newAnimalName = textFieldValue
+                    } else if (puzzleSector == "Work" && workTasks == 30){
+                        workTasks = 0
+                        newAnimalName = textFieldValue
+                    }
+                    dismiss()
                 })
                 .disabled(trueCounter != 0)
                 .foregroundStyle(Color.blue)
