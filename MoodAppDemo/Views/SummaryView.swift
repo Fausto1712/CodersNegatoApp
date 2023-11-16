@@ -170,7 +170,7 @@ struct SummaryView: View {
 func updateWeeklyProgress(daysSt: [Day],currentDays: Int,Sector: String) -> Double {
     var counterSum = 0
     let currentDay = currentDays-1
-    /*
+    
     if Sector == "Sport" {
         if currentDay < 7 {
             for i in 0...currentDay{
@@ -212,6 +212,6 @@ func updateWeeklyProgress(daysSt: [Day],currentDays: Int,Sector: String) -> Doub
             }
         }
     }
-    */
+    
     return Double(counterSum)
 }

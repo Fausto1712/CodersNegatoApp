@@ -46,7 +46,7 @@ struct AnimalFarmView: View {
             modelContext.insert(SquareAnimal(imageName: "AVD", animalName: "Maximiliano", dateObtained: "28/10/2023 - 2:42", spriteNames: ["AVD","AVH","AVR","AVU"]))
             modelContext.insert(SquareAnimal(imageName: "AWD", animalName: "Kuko", dateObtained: "11/10/2023 - 8:05", spriteNames: ["AWD","AWH","AWR","AWU"]))
         }
-        /*
+        
         for i in 0...animals.count-1 {
             var newSquare = Square()
             newSquare.imageName = animals[i].imageName
@@ -54,7 +54,7 @@ struct AnimalFarmView: View {
             newSquare.dateObtained = animals[i].dateObtained
             newSquare.spriteNames = animals[i].spriteNames
             squares.append(newSquare)
-        }*/
+        }
     }
 }
 
